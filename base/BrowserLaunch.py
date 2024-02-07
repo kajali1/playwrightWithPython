@@ -6,7 +6,8 @@ def browser_launch(browser_name):
     playwright = sync_playwright().start()
     if browser_name == 'chromium':
         chromium = playwright.chromium  # or "firefox" or "webkit".
-        browser = chromium.launch(headless=False)
+        browser = chromium.launch()
+      #  browser = chromium.launch(headless=False)
 
     else:
         firefox = playwright.firefox
