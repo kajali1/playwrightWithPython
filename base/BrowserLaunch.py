@@ -1,3 +1,4 @@
+import sys
 
 from playwright.sync_api import Playwright, sync_playwright
 
@@ -6,12 +7,17 @@ def browser_launch(browser_name):
     playwright = sync_playwright().start()
     if browser_name == 'chromium':
         chromium = playwright.chromium  # or "firefox" or "webkit".
-        browser = chromium.launch()
-      #  browser = chromium.launch(headless=False)
+        if sys.platform.startswith('win'):
+            browser = chromium.launch(headless=False)
+        else:
+            browser = chromium.launch()
 
     else:
         firefox = playwright.firefox
-        browser = firefox.launch(headless=False)
+        if sys.platform.startswith('win'):
+            browser = firefox.launch(headless=False)
+        else:
+            browser = firefox.launch()
 
     page = browser.new_page()
     return browser, page, playwright

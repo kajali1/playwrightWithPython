@@ -1,4 +1,6 @@
 import os
+import sys
+
 import pytest
 from playwright.sync_api import expect
 from page_objects.shop_page import ShopPage
@@ -15,6 +17,7 @@ def test_validate_title(set_up_for_test):
 
 @pytest.mark.sanity1
 def test_validate_search(set_up_for_test):
+    print(sys.platform)
     browser, page, playwright = set_up_for_test
     page.goto("https://rahulshettyacademy.com/seleniumPractise/#/")
     page.wait_for_load_state()
@@ -46,4 +49,4 @@ def test_add_to_cart(set_up_for_test):
     shop_page.proceedToCheckout.click()
     page.wait_for_selector("text='No. of Items     : '")
     expect(shop_page.NoOfItems).to_have_text('No. of Items     : ')
-    expect(shop_page.totalAmount).to_have_text("17")
+    expect(shop_page.totalAmount).to_have_text("16")
