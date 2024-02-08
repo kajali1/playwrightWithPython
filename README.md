@@ -18,3 +18,6 @@ Execution speed is fast
 provides auto-wait for the locator
 wide range of options to locate elemenet
 provide code-gen to record and generate code (playwright codegen)
+
+Fixture are used for the purpose of hooks i.e. set_up and tear down
+
