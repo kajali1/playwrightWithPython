@@ -10,7 +10,7 @@ from base.util import read_json_file
 @pytest.mark.sanity
 def test_validate_title(set_up_for_test):
     browser, page, playwright = set_up_for_test
-    page.goto("https://rahulshettyacademy.com/seleniumPractise/#/")
+    page.goto(read_json_file(os.getcwd() + "/Data.json", "url1"))
     page.wait_for_load_state()
     expect(page).to_have_title("GreenKart - veg and fruits kart")
 
@@ -19,7 +19,7 @@ def test_validate_title(set_up_for_test):
 def test_validate_search(set_up_for_test):
     print(sys.platform)
     browser, page, playwright = set_up_for_test
-    page.goto("https://rahulshettyacademy.com/seleniumPractise/#/")
+    page.goto(read_json_file(os.getcwd() + "/Data.json", "url1"))
     page.wait_for_load_state()
     shop_page = ShopPage(page)
     shop_page.searchText.fill(read_json_file(os.getcwd() + "/Data.json", "searchText2"))
@@ -33,7 +33,7 @@ def test_validate_search(set_up_for_test):
 
 def test_add_to_cart(set_up_for_test):
     browser, page, playwright = set_up_for_test
-    page.goto("https://rahulshettyacademy.com/seleniumPractise/#/")
+    page.goto(read_json_file(os.getcwd() + "/Data.json", "url1"))
     page.wait_for_load_state()
     # other actions...
     shop_page = ShopPage(page)

@@ -1,5 +1,6 @@
 {
   "browserName": "chromium",
+  "url1": "https://rahulshettyacademy.com/seleniumPractise/#/",
   "searchText1": "Toma",
   "searchText2": "Ca"
 }
